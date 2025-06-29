@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RobloxScriptLab - Scripts</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --card: #f0f0f0;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #ffffff;
+      --card: #1e1e1e;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      padding: 10px 20px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+    }
+    .toggle-theme {
+      cursor: pointer;
+      padding: 5px 10px;
+      background: none;
+      border: 1px solid var(--text);
+      border-radius: 5px;
+    }
+    .container {
+      padding: 20px;
+    }
+    .script-card {
+      background: var(--card);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .copy-btn {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>RobloxScriptLab</strong></div>
+    <nav>
+      <a href="index.html" rel="noopener">Home</a>
+      <a href="scripts.html" target="_blank" rel="noopener">Scripts</a>
+      <button class="toggle-theme" onclick="toggleTheme()">🌙 / ☀️</button>
+    </nav>
+  </header>
+
+  <div class="container" id="scripts">
+    <h2>My Roblox Scripts</h2>
+
+    <div class="script-card">
+      <h3>Banana Eats Script</h3>
+      <code id="script1">
+        https://pastebin.com/raw/6J0ZA9wH
+      </code><br/>
+      <button class="copy-btn" onclick="copyScript('script1')">📋 Copy</button>
+    </div>
+
+    <div class="script-card">
+      <h3>Universal Red Highlight ESP</h3>
+      <code id="script2">
+        https://pastebin.com/raw/jucns4Rv
+      </code><br/>
+      <button class="copy-btn" onclick="copyScript('script2')">📋 Copy</button>
+    </div>
+
+    <div class="script-card">
+      <h3>Survive the Killer Script</h3>
+      <code id="script3">
+        https://pastebin.com/raw/dEjNTwGB
+      </code><br/>
+      <button class="copy-btn" onclick="copyScript('script3')">📋 Copy</button>
+    </div>
+
+    <div class="script-card">
+      <h3>MM2 Script</h3>
+      <code id="script4">
+        https://pastebin.com/raw/TsvtKX8e
+      </code><br/>
+      <button class="copy-btn" onclick="copyScript('script4')">📋 Copy</button>
+    </div>
+
+    <div class="script-card">
+      <h3>Headshot Only Aimbot Script</h3>
+      <code id="script5">
+        https://pastebin.com/raw/YR2TCeqm
+      </code><br/>
+      <button class="copy-btn" onclick="copyScript('script5')">📋 Copy</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme");
+      const newTheme = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    }
+
+    function copyScript(id) {
+      const text = document.getElementById(id).textContent.trim();
+      navigator.clipboard.writeText
